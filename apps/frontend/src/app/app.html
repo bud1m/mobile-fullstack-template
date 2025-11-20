@@ -1,83 +1,45 @@
 <ion-app>
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>🚀 Full-Stack Monorepo</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-content class="showcase-content">
+    <div class="center-container">
+      <div class="header-section">
+        <h1 class="title">Full-Stack Monorepo</h1>
+        <p class="description">Angular + Ionic + NestJS</p>
+      </div>
 
-  <ion-content class="ion-padding">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Angular + Ionic + NestJS</ion-card-title>
-        <ion-card-subtitle>Simple Full-Stack Communication</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        <!-- Backend Response Display -->
-        @if (backendMessage()) {
-          <ion-chip color="success">
-            <ion-label>✓ {{ backendMessage() }}</ion-label>
-          </ion-chip>
+      <div class="info-text">
+        @if (loading()) {
+          <span>Connecting to backend server...</span>
+        } @else if (backendMessage()) {
+          <span>Backend response received!</span>
         } @else {
-          <ion-chip color="medium">
-            <ion-label>⏳ No response yet</ion-label>
-          </ion-chip>
+          <span>Click to test backend connection</span>
         }
+      </div>
 
-        <!-- Button to fetch from backend -->
-        <ion-button 
-          expand="block" 
-          (click)="fetchFromBackend()"
-          [disabled]="loading()"
-          class="ion-margin-top">
-          @if (loading()) {
-            <ion-spinner name="crescent"></ion-spinner>
-            <ion-label class="ion-margin-start">Loading...</ion-label>
-          } @else {
-            📤 Send Request to Backend
-          }
-        </ion-button>
+      @if (backendMessage()) {
+        <div class="message success">
+          {{ backendMessage() }}
+        </div>
+      }
+      
+      @if (error()) {
+        <div class="message error">
+          {{ error() }}
+        </div>
+      }
 
-        <!-- Error Display -->
-        @if (error()) {
-          <ion-text color="danger">
-            <p><strong>❌ Error:</strong> {{ error() }}</p>
-          </ion-text>
+      <ion-button 
+        (click)="fetchFromBackend()"
+        [disabled]="loading()"
+        class="main-button">
+        @if (loading()) {
+          <ion-spinner name="crescent"></ion-spinner>
+          <span class="button-text">Connecting...</span>
+        } @else {
+          <span class="button-text">Test Backend</span>
         }
-      </ion-card-content>
-    </ion-card>
-
-    <!-- Info Card -->
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>💻 Tech Stack</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list lines="none">
-          <ion-item>
-            <div slot="start" style="font-size: 2rem;">🅰️</div>
-            <ion-label>
-              <h3>Angular</h3>
-              <p>Frontend Framework</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <div slot="start" style="font-size: 2rem;">📱</div>
-            <ion-label>
-              <h3>Ionic</h3>
-              <p>UI Components</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <div slot="start" style="font-size: 2rem;">🚀</div>
-            <ion-label>
-              <h3>NestJS</h3>
-              <p>Backend API (localhost:3000)</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
+      </ion-button>
+    </div>
   </ion-content>
 </ion-app>
 

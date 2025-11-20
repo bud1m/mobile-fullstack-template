@@ -3,22 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { 
   IonApp, 
-  IonHeader, 
-  IonToolbar, 
-  IonTitle, 
   IonContent, 
-  IonCard, 
-  IonCardHeader, 
-  IonCardTitle, 
-  IonCardSubtitle, 
-  IonCardContent,
   IonButton,
-  IonChip,
-  IonLabel,
-  IonSpinner,
-  IonText,
-  IonList,
-  IonItem
+  IonSpinner
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -26,22 +13,9 @@ import {
   imports: [
     RouterOutlet,
     IonApp,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonContent,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
     IonButton,
-    IonChip,
-    IonLabel,
-    IonSpinner,
-    IonText,
-    IonList,
-    IonItem
+    IonSpinner
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

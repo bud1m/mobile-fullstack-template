@@ -334,86 +334,9 @@ export const environment = {
 };
 ```
 
-## 🤝 Contributing
-
-1. Create a feature branch
-2. Make your changes
-3. Run tests and linting
-4. Submit a pull request
-
 ## 📄 License
 
 MIT
-
-## 🆘 Troubleshooting
-
-### Node command not found (after Homebrew install)
-
-If you installed node via Homebrew and get "command not found":
-
-```bash
-# Add node@24 to PATH
-echo 'export PATH="/opt/homebrew/opt/node@24/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-
-# Verify
-node --version
-```
-
-### pnpm install fails
-
-```bash
-# Clear pnpm cache
-pnpm store prune
-
-# Remove node_modules and lockfiles
-rm -rf node_modules apps/*/node_modules apps/*/pnpm-lock.yaml pnpm-lock.yaml
-
-# Reinstall
-pnpm install
-```
-
-### Port already in use
-
-```bash
-# Kill process on port 3000 (backend)
-lsof -ti:3000 | xargs kill -9
-
-# Kill process on port 4200 (frontend)
-lsof -ti:4200 | xargs kill -9
-```
-
-### CORS issues
-
-Make sure `app.enableCors()` is present in `apps/backend/src/main.ts`:
-
-```typescript
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.enableCors(); // Add this line
-  await app.listen(process.env.PORT ?? 3000);
-}
-```
-
-### Frontend can't connect to backend
-
-1. Make sure backend is running: `pnpm backend`
-2. Check backend is on port 3000: `http://localhost:3000`
-3. Check CORS is enabled (see above)
-4. Verify the API URL in frontend code matches: `http://localhost:3000`
-
-### Ionic components not showing
-
-Make sure you've imported Ionic components in your Angular component:
-
-```typescript
-import { IonButton, IonCard } from '@ionic/angular/standalone';
-
-@Component({
-  imports: [IonButton, IonCard],
-  // ...
-})
-```
 
 ## 📚 Learn More
 
@@ -424,18 +347,3 @@ import { IonButton, IonCard } from '@ionic/angular/standalone';
 - [Ionic Angular](https://ionicframework.com/docs/angular/overview)
 - [NestJS Documentation](https://docs.nestjs.com)
 - [Capacitor Documentation](https://capacitorjs.com/docs)
-
-## 🎯 Quick Start Checklist
-
-- [ ] Install Node.js (v18+)
-- [ ] Install pnpm globally
-- [ ] Install Angular CLI globally
-- [ ] Install NestJS CLI globally
-- [ ] Install Ionic CLI globally
-- [ ] Clone repository
-- [ ] Run `pnpm install` at root
-- [ ] Start backend: `pnpm backend`
-- [ ] Start frontend: `pnpm frontend`
-- [ ] Open browser: `http://localhost:4200`
-- [ ] Click "Send Request to Backend" button to test connection
-
