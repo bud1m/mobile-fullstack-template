@@ -1,0 +1,32 @@
+{
+  "name": "starter-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack monorepo with Angular + Ionic frontend and NestJS backend",
+  "scripts": {
+    "frontend": "pnpm --filter frontend start",
+    "backend": "pnpm --filter backend start",
+    "dev": "pnpm run --parallel --filter frontend --filter backend start",
+    "build": "pnpm run --recursive build",
+    "test": "pnpm run --recursive test",
+    "lint": "pnpm run --recursive lint"
+  },
+  "keywords": [
+    "monorepo",
+    "pnpm",
+    "angular",
+    "ionic",
+    "nestjs",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
+
